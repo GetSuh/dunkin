@@ -10,20 +10,20 @@ export type BoxChoice = {
 };
 
 export type CartItem = {
-  id: string;               // unique id in cart (not product id)
+  id: string;               
   type: CartItemType;
 
-  productId: string;        // id from products table
+  productId: string;        
   name: string;
-  unitPrice: number;        // donut price OR fixed box price
-  qty: number;              // donut qty OR 1 box
+  unitPrice: number;       
+  qty: number;              
 
   imageUrl?: string | null;
 
-  // donut variant
+  
   variant?: string | null;
 
-  // box content
+  
   choices?: {
     boxSize: number;
     donuts: BoxChoice[];
@@ -62,7 +62,7 @@ function reducer(state: State, action: Action): State {
     case "ADD_DONUT": {
       const p = action.payload;
 
-      // Merge rule: same donut + same variant => increase qty
+      
       const idx = state.items.findIndex(
         (i) =>
           i.type === "donut" &&
@@ -92,14 +92,14 @@ function reducer(state: State, action: Action): State {
     case "ADD_BOX": {
       const p = action.payload;
 
-      // Box is usually not merged (each box can be different content)
+      
       const newItem: CartItem = {
         id: makeId(),
         type: "box",
         productId: p.productId,
         name: p.name,
         unitPrice: p.unitPrice,
-        qty: p.qty, // normally 1
+        qty: p.qty, 
         imageUrl: p.imageUrl ?? null,
         choices: p.choices,
       };
@@ -137,7 +137,7 @@ type CartContextValue = {
   addBox: (p: {
     productId: string;
     name: string;
-    unitPrice: number; // fixed price of the box
+    unitPrice: number; 
     boxSize: number;
     donuts: BoxChoice[];
     imageUrl?: string | null;
@@ -153,7 +153,7 @@ const CartCtx = createContext<CartContextValue | null>(null);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, { items: [] });
 
-  // Load from AsyncStorage on mount
+ 
   useEffect(() => {
     (async () => {
       try {
@@ -167,7 +167,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
     })();
   }, []);
 
-  // Persist whenever cart changes
   useEffect(() => {
     (async () => {
       try {

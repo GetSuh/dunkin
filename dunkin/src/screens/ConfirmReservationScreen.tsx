@@ -69,7 +69,7 @@ export default function ConfirmReservationScreen({ route, navigation }: any) {
     try {
       setSubmitting(true);
 
-      // 1) Insert reservation (nieuw schema)
+      
       const { data: reservation, error: resError } = await supabase
         .from("reservations")
         .insert({
@@ -87,12 +87,11 @@ export default function ConfirmReservationScreen({ route, navigation }: any) {
 
       const reservationId = reservation.id as string;
 
-      // 2) Insert reservation_items
-      // Let op: product_type is NOT NULL in jouw DB
+      
       const rows = items.map((i) => ({
         reservation_id: reservationId,
         product_id: i.productId,
-        product_type: i.type, // ✅ donut/box
+        product_type: i.type, 
         qty: i.qty,
         unit_price: i.unitPrice,
         name: i.name,
@@ -103,7 +102,7 @@ export default function ConfirmReservationScreen({ route, navigation }: any) {
       const { error: itemsError } = await supabase.from("reservation_items").insert(rows);
       if (itemsError) throw itemsError;
 
-      // 3) Clear cart + navigate
+      
       clear();
       Alert.alert("Gelukt ✅", "Je reservering is geplaatst.");
       navigation.navigate("Tabs", { screen: "Reserveringen" });
@@ -134,7 +133,7 @@ export default function ConfirmReservationScreen({ route, navigation }: any) {
         </Text>
       </View>
 
-      {/* Customer info */}
+      
       <View style={s.formCard}>
         <Text style={s.sectionTitle}>Jouw gegevens</Text>
 
@@ -142,7 +141,7 @@ export default function ConfirmReservationScreen({ route, navigation }: any) {
         <TextInput
           value={customerName}
           onChangeText={setCustomerName}
-          placeholder="bv. Tom Jacobs"
+          placeholder="bv. Lance Taguba"
           style={s.input}
           autoCapitalize="words"
         />
@@ -157,7 +156,7 @@ export default function ConfirmReservationScreen({ route, navigation }: any) {
         />
       </View>
 
-      {/* Items */}
+      
       <Text style={[s.sectionTitle, { paddingHorizontal: 16, marginTop: 10 }]}>Overzicht</Text>
 
       <FlatList

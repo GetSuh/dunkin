@@ -22,12 +22,12 @@ type Donut = {
   available?: boolean;
 };
 
-type SelectedMap = Record<string, number>; // 
+type SelectedMap = Record<string, number>;  
 
 export default function BoxBuilderScreen({ route, navigation }: any) {
   const { boxId, boxSize, boxName, boxPrice, boxImageUrl } = route.params as {
     boxId: string;
-    boxSize: number; // 6 or 12
+    boxSize: number; 
     boxName: string;
     boxPrice: number;
     boxImageUrl?: string | null;

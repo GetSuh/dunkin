@@ -23,7 +23,7 @@ type Product = {
   description: string | null;
   tags: string[] | null;
   sort_priority: number;
-  options: any | null; // box: { boxSize: 6 } bijv.
+  options: any | null; 
 };
 
 export default function HomeScreen({ navigation }: any) {
@@ -103,7 +103,7 @@ export default function HomeScreen({ navigation }: any) {
       contentContainerStyle={{ paddingBottom: 24 }}
       ListHeaderComponent={
         <View style={{ paddingTop: 12 }}>
-          {/* TOP BAR: titel + winkelmandje */}
+          
           <View style={s.topBar}>
             <View>
               <Text style={s.title}>Dunkin</Text>
@@ -121,7 +121,7 @@ export default function HomeScreen({ navigation }: any) {
             </Pressable>
           </View>
 
-          {/* Boxes section */}
+          
           <View style={s.sectionHeader}>
             <Text style={s.sectionTitle}>Dozen</Text>
             <Text style={s.mutedSmall}>Vaste prijs</Text>

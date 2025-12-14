@@ -44,7 +44,7 @@ export default function ReservationsScreen({ navigation }: any) {
   const [refreshing, setRefreshing] = useState(false);
   const [reservations, setReservations] = useState<Reservation[]>([]);
 
-  // ✅ load doet alleen fetch + setReservations (geen loading toggles hier)
+  //  load doet alleen fetch + setReservations (geen loading toggles hier)
   const load = useCallback(async () => {
     const { data, error } = await supabase
       .from("reservations")
@@ -56,7 +56,7 @@ export default function ReservationsScreen({ navigation }: any) {
     setReservations(((data ?? []) as unknown) as Reservation[]);
   }, []);
 
-  // ✅ Auto refresh wanneer je terugkomt van detail screen
+  //  Auto refresh wanneer je terugkomt van detail screen
   useFocusEffect(
     useCallback(() => {
       let active = true;

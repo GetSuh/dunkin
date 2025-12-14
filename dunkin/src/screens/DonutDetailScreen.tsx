@@ -25,10 +25,8 @@ type Product = {
 
   variants?: string[] | null;
   tags?: string[] | null;
-
-  // als je enums/arrays gebruikte:
-  diet_labels?: string[] | null; // bv ["vegan"]
-  allergens?: string[] | null;   // bv ["nuts","milk"]
+  diet_labels?: string[] | null; 
+  allergens?: string[] | null;   
 };
 
 export default function DonutDetailScreen({ route, navigation }: any) {
@@ -125,7 +123,7 @@ export default function DonutDetailScreen({ route, navigation }: any) {
 
   return (
     <ScrollView style={s.container} contentContainerStyle={{ paddingBottom: 24 }}>
-      {/* Image */}
+      
       {donut.image_url ? (
         <Image source={{ uri: donut.image_url }} style={s.image} resizeMode="cover" />
       ) : (
@@ -135,7 +133,7 @@ export default function DonutDetailScreen({ route, navigation }: any) {
       )}
 
       <View style={s.body}>
-        {/* Title row */}
+        
         <View style={{ gap: 6 }}>
           <View style={{ flexDirection: "row", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
             <Text style={s.title}>{donut.name}</Text>
@@ -164,7 +162,7 @@ export default function DonutDetailScreen({ route, navigation }: any) {
           {donut.description ? <Text style={s.desc}>{donut.description}</Text> : null}
         </View>
 
-        {/* Allergenen lijst */}
+        
         {donut.allergens && donut.allergens.length > 0 && (
           <View style={{ marginTop: 14, gap: 8 }}>
             <Text style={s.sectionTitle}>Allergenen</Text>
@@ -178,7 +176,7 @@ export default function DonutDetailScreen({ route, navigation }: any) {
           </View>
         )}
 
-        {/* Variants */}
+        
         {donut.variants && donut.variants.length > 0 && (
           <View style={{ marginTop: 14, gap: 8 }}>
             <Text style={s.sectionTitle}>Variant</Text>
@@ -207,7 +205,7 @@ export default function DonutDetailScreen({ route, navigation }: any) {
           </View>
         )}
 
-        {/* Quantity + Add */}
+        
         <View style={s.bottomRow}>
           <View style={s.qtyRow}>
             <Pressable onPress={decQty} style={({ pressed }) => [s.qtyBtn, pressed && s.pressed]}>

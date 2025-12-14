@@ -14,7 +14,7 @@ import { supabase } from "../services/supabase";
 export default function CheckoutScreen({ navigation }: any) {
   const { items, totalPrice, clear, removeItem } = useCart();
 
-  // 🔹 donutId -> donutName
+  // 
   const [donutMap, setDonutMap] = useState<Record<string, string>>({});
 
   useEffect(() => {

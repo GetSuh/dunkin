@@ -54,7 +54,7 @@ export default function ReservationDetailScreen({ route, navigation }: any) {
   const [loading, setLoading] = useState(true);
   const [res, setRes] = useState<Reservation | null>(null);
 
-  // ✅ Hooks ALTIJD bovenaan (geen hooks na returns!)
+  
   const items = useMemo(() => {
     return (res?.reservation_items ?? []).filter(Boolean);
   }, [res]);
@@ -130,7 +130,7 @@ export default function ReservationDetailScreen({ route, navigation }: any) {
 
   useEffect(() => {
     if (id) load();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [id]);
 
   async function cancelReservation() {
@@ -165,7 +165,7 @@ export default function ReservationDetailScreen({ route, navigation }: any) {
     ]);
   }
 
-  // ✅ returns pas NA alle hooks
+  
   if (loading) {
     return (
       <View style={s.center}>
