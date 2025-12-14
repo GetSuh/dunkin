@@ -124,7 +124,7 @@ export default function HomeScreen({ navigation }: any) {
           
           <View style={s.sectionHeader}>
             <Text style={s.sectionTitle}>Dozen</Text>
-            <Text style={s.mutedSmall}>Vaste prijs</Text>
+            <Text style={s.mutedSmall}>Doos 6 of 12</Text>
           </View>
 
           <FlatList
@@ -164,7 +164,7 @@ export default function HomeScreen({ navigation }: any) {
           {/* Donuts section */}
           <View style={s.sectionHeader}>
             <Text style={s.sectionTitle}>Donuts</Text>
-            <Text style={s.mutedSmall}>Specials staan bovenaan</Text>
+            <Text style={s.mutedSmall}>Individuele donuts bestellen</Text>
           </View>
         </View>
       }
