@@ -135,7 +135,7 @@ export default function BoxBuilderScreen({ route, navigation }: any) {
       imageUrl: boxImageUrl ?? null,
     });
 
-    Alert.alert("Toegevoegd ✅", `${boxName} is toegevoegd aan je mandje.`);
+    Alert.alert("Toegevoegd !", `${boxName} is toegevoegd aan je mandje.`);
     navigation.navigate("Checkout");
   }
 
