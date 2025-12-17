@@ -120,7 +120,7 @@ export default function PickupScreen({ navigation }: any) {
       return;
     }
 
-    // Volgende stap: Confirm/PlaceReservation screen (maken we daarna)
+    
     navigation.navigate("ConfirmReservation", {
       storeId: selectedStoreId,
       pickupAt: pickupAt.toISOString(),
@@ -179,7 +179,7 @@ export default function PickupScreen({ navigation }: any) {
         }
       />
 
-      {/* Bottom bar */}
+      
       <View style={s.bottomBar}>
         <View style={{ flex: 1, gap: 6 }}>
           <Text style={s.smallLabel}>Afhaaltijd</Text>
