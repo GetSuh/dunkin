@@ -83,15 +83,6 @@ export default function RootNavigator() {
 
 
   
-
-
-
-
-
-        {/* Optioneel later:
-        <Stack.Screen name="BoxBuilder" component={BoxBuilderScreen} options={{ title: "Doos samenstellen" }} />
-        
-        */}
       </Stack.Navigator>
     </NavigationContainer>
   );
