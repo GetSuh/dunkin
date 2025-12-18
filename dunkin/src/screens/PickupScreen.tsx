@@ -112,7 +112,7 @@ export default function PickupScreen({ navigation }: any) {
   function onNext() {
     if (items.length === 0) {
       Alert.alert("Leeg mandje", "Voeg eerst iets toe aan je mandje.");
-      navigation.navigate("Tabs"); // terug naar Home
+      navigation.navigate("Tabs"); 
       return;
     }
     if (!selectedStoreId) {
